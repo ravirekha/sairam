@@ -1,5 +1,7 @@
 package com.ultraon.testing;
 
+import com.google.common.truth.Truth;
+
 import org.junit.Test;
 
 /**
@@ -9,5 +11,6 @@ public class ZhabaTest {
     @Test
     public void test() {
         final Reversal reversal = new Reversal();
+        Truth.assertThat(reversal.reverse()).isNotNull();
     }
 }
