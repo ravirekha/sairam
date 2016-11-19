@@ -31,4 +31,11 @@ public class ZhabaTest {
         final Reversal reversal = new Reversal();
         Truth.assertThat(reversal.reverse("1")).isEqualTo("1");
     }
+
+    @Test
+    public void testOneLetterAndOneNonLetter() {
+        final Reversal reversal = new Reversal();
+        
+    }
+
 }
