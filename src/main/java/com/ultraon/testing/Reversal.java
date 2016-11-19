@@ -27,7 +27,11 @@ public class Reversal {
         for (Map.Entry<Integer, Character> entry : nonLetterPositions.entrySet()) {
             final Integer position = entry.getKey();
             final String nonLetter = entry.getValue().toString();
-            sb.insert(position, nonLetter);
+            if (position > sb.length() - 1) {
+                sb.append(nonLetter);
+            } else {
+                sb.insert(position, nonLetter);
+            }
         }
 
         return sb.toString();

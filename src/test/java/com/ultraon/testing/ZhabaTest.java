@@ -47,6 +47,6 @@ public class ZhabaTest {
     @Test
     public void testSeveralLetterAndSeveralNonLetter() {
         final Reversal reversal = new Reversal();
-        
+        Truth.assertThat(reversal.reverse("1abaj1")).isEqualTo("1jaba1");
     }
 }
