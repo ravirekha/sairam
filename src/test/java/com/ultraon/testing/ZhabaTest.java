@@ -11,12 +11,18 @@ public class ZhabaTest {
     @Test
     public void testEmptyString() {
         final Reversal reversal = new Reversal();
-        Truth.assertThat(reversal.reverse()).isNotNull();
+        Truth.assertThat(reversal.reverse("")).isNotNull();
     }
 
     @Test
     public void testOneLetter() {
         final Reversal reversal = new Reversal();
         Truth.assertThat(reversal.reverse("a")).isEqualTo("a");
+    }
+
+    @Test
+    public void testTwoLetters() {
+        final Reversal reversal = new Reversal();
+        
     }
 }
