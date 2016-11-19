@@ -53,7 +53,12 @@ public class ZhabaTest {
     @Test
     public void testSeveralWords() {
         final Reversal reversal = new Reversal();
-        
+        Truth.assertThat(reversal.reverse("a1b2 1abaj1")).isEqualTo("b1a2 1jaba1");
     }
 
+    @Test
+    public void testSeveralWordsWithEndSpace() {
+        final Reversal reversal = new Reversal();
+        Truth.assertThat(reversal.reverse("a1b2 1abaj1")).isEqualTo("b1a2 1jaba1");
+    }
 }

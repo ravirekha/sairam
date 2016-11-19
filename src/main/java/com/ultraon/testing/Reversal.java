@@ -10,7 +10,7 @@ import java.util.Map;
  * chars.
  */
 public class Reversal {
-    public String reverse(@NotNull final String input) {
+    public String reverseWord(@NotNull final String input) {
         final char[] chars = input.toCharArray();
         final StringBuilder sb = new StringBuilder();
         final Map<Integer, Character> nonLetterPositions = new LinkedHashMap<>();
@@ -32,6 +32,20 @@ public class Reversal {
             } else {
                 sb.insert(position, nonLetter);
             }
+        }
+
+        return sb.toString();
+    }
+
+    public String reverse(@NotNull final String input) {
+        final String[] words = input.split(" ");
+        final StringBuilder sb = new StringBuilder();
+        for (final String word : words) {
+            sb.append(reverseWord(word)).append(" ");
+        }
+        if ((input.charAt(input.length() - 1) != ' ')
+                && (sb.length() > 1 && sb.charAt(sb.length() - 1) == ' ')) {
+            sb.deleteCharAt(sb.length() - 1);
         }
 
         return sb.toString();
