@@ -23,6 +23,6 @@ public class ZhabaTest {
     @Test
     public void testTwoLetters() {
         final Reversal reversal = new Reversal();
-        
+        Truth.assertThat(reversal.reverse("ab")).isEqualTo("ba");
     }
 }
