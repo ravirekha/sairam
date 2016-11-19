@@ -6,7 +6,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 
 /**
- * Created by vitaliypopov on 19/11/16.
+ * Unit tetst for {@link Division}.
  */
 public class DivisionTest {
     private static final int DIVIDEND = 10;
@@ -25,6 +25,13 @@ public class DivisionTest {
     }
 
     @Test
+    public void testComposeDivisionOutputWithReminder() throws Exception {
+        final Division sut = new Division(10, 3);
+        assertThat(sut.composeDivisionOutput()).isEqualTo(OUTPUT_10_3);
+    }
+
+
+    @Test
     public void testComposeDivisionOutputNullDividend() throws Exception {
         final Division sut = new Division(0, DIVIDER);
         assertThat(sut.composeDivisionOutput()).isEqualTo(OUTPUT_0_2);
@@ -39,19 +46,19 @@ public class DivisionTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testComposeDivisionOutputMaxDividend() throws Exception {
         final Division sut = new Division(Integer.MAX_VALUE, DIVIDER);
-        assertThat(sut.composeDivisionOutput()).isEqualTo(OUTPUT_10_MIN);
+        assertThat(sut.composeDivisionOutput()).isEqualTo(OUTPUT_10_MAX_2);
     }
 
     @Test
-    public void testComposeDivisionMinDivider() throws Exception {
+    public void testComposeDivisionOutputMinDivider() throws Exception {
         final Division sut = new Division(DIVIDEND, Integer.MIN_VALUE);
-        assertThat(sut.composeDivisionOutput()).isNotEmpty();
+        assertThat(sut.composeDivisionOutput()).isEqualTo(OUTPUT_10_MIN_2);
     }
 
     @Test
-    public void testComposeDivisionMinDividend() throws Exception {
+    public void testComposeDivisionOutputMinDividend() throws Exception {
         final Division sut = new Division(Integer.MIN_VALUE, DIVIDER);
-        assertThat(sut.composeDivisionOutput()).isNotEmpty();
+        assertThat(sut.composeDivisionOutput()).isEqualTo(OUTPUT_10_MIN);
     }
 
 
@@ -86,10 +93,31 @@ public class DivisionTest {
             "          _\n" +
             " 1215752192\n";
 
-    private static final String OUTPUT_10_MIN = "  10 |-2147483648\n" +
+    private static final String OUTPUT_10_MAX_2 = "  10 |-2147483648\n" +
             "-   -----\n" +
             " 0  |0.0000000000\n" +
             "          _\n" +
             " 1215752192\n";
 
+    private static final String OUTPUT_10_3 =" 10 |3\n"+
+            "-   -----\n"+
+            " 9  |3.(3)\n"+
+            "  _\n"+
+            "  10\n"+
+            " -\n"+
+            "   9\n"+
+            "  __\n"+
+            "   1\n";
+
+    private static final String OUTPUT_10_MIN = "--2147483648 |2\n" +
+            "-           -----\n" +
+            " -8         |-1073741824\n" +
+            " _\n" +
+            " 0\n";
+
+    private static final String OUTPUT_10_MIN_2 = " 10 |-2147483648\n"+
+            "-   -----\n"+
+            " 0  |0.0000000000\n"+
+            "          _\n"+
+            " 1215752192\n";
 }
