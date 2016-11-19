@@ -2,16 +2,34 @@ package com.ultraon.testing;
 
 import com.sun.istack.internal.NotNull;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
- * Created by vitaliypopov on 19/11/16.
+ * The {@link Reversal} is responsible for reversing string with some behavior for the non letter
+ * chars.
  */
 public class Reversal {
-    public String reverse(final @NotNull String input) {
+    public String reverse(@NotNull final String input) {
         final char[] chars = input.toCharArray();
         final StringBuilder sb = new StringBuilder();
+        final Map<Integer, Character> nonLetterPositions = new LinkedHashMap<>();
+
         for (int i = chars.length - 1; i >= 0 ; i--) {
-            sb.append(chars[i]);
+            final char ch = chars[i];
+            if (Character.isLetter(ch)) {
+                sb.append(ch);
+            } else {
+                nonLetterPositions.put(i, ch);
+            }
         }
+
+        for (Map.Entry<Integer, Character> entry : nonLetterPositions.entrySet()) {
+            final Integer position = entry.getKey();
+            final String nonLetter = entry.getValue().toString();
+            sb.insert(position, nonLetter);
+        }
+
         return sb.toString();
     }
 }
