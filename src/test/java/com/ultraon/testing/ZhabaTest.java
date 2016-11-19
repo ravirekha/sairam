@@ -25,4 +25,10 @@ public class ZhabaTest {
         final Reversal reversal = new Reversal();
         Truth.assertThat(reversal.reverse("ab")).isEqualTo("ba");
     }
+
+    @Test
+    public void testOneNonLetter() {
+        final Reversal reversal = new Reversal();
+        Truth.assertThat(reversal.reverse("1")).isEqualTo("1");
+    }
 }
