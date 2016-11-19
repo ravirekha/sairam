@@ -20,7 +20,7 @@ sourceSets {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.11'
+    testCompile 'junit:junit:4.4'
 }
 
 test {
@@ -31,7 +31,7 @@ test {
 
 // create Gradle wrapper with command line `gradle wrapper` in terminal
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    gradleVersion = '3.2'
 }
 
-mainClassName = "Main" // Main.java is located in src/main/java/Main.java
+mainClassName = "com.ultraon.testing.Main" // com.ultraon.testing.Main.java is located in src/main/java/com.ultraon.testing.Main.java

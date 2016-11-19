@@ -1,5 +1,7 @@
+package com.ultraon.testing;
+
 /**
- * This is an generic Queue implementation using a circular array.
+ * This is an generic com.ultraon.testing.Queue implementation using a circular array.
  * This class has been optimized for algorithmic runtime, memory usage,
  * and memory throughput.
  *
@@ -81,7 +83,7 @@ public class Queue<E> {
     }
 
     /**
-     * Remove all elements in Queue.
+     * Remove all elements in com.ultraon.testing.Queue.
      */
     void clear() {
         rearElementIndex = 0;

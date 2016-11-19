@@ -7,7 +7,7 @@ over Ant or Maven for building Java code because you do <b>NOT</b> need to
 install Gradle in order to use it because you download a wrapper. This greatly 
 simplifies the install process. As an example I have implemented a queue with 
 a single test file to show how you want to organize your files. I have also
-added a `Main.java` class for you to run your application. For larger 
+added a `com.ultraon.testing.Main.java` class for you to run your application. For larger
 Java projects take a look at the `build.gradle` file and file structure at this 
 open source brain project: https://github.com/WalnutiQ/WalnutiQ
 
@@ -35,7 +35,7 @@ open source brain project: https://github.com/WalnutiQ/WalnutiQ
    prompt/SampleGradleProject> gradlew.bat test
    ```
 
-## How to run `Main.java` through command line in Linux/Mac/Windows with Gradle
+## How to run `com.ultraon.testing.Main.java` through command line in Linux/Mac/Windows with Gradle
 
 1. First make sure the above instructions work.
 
@@ -50,9 +50,9 @@ open source brain project: https://github.com/WalnutiQ/WalnutiQ
    Yo what's up human! Oh you think you're fancy
    ```
 
-## Queue Implementation strategy
-The `Queue.java` class is in `src/main/java/Queue.java`  
-The `QueueTest.java` class is in `src/test/java/QueueTest.java`
+## com.ultraon.testing.Queue Implementation strategy
+The `com.ultraon.testing.Queue.java` class is in `src/main/java/com.ultraon.testing.Queue.java`
+The `com.ultraon.testing.QueueTest.java` class is in `src/test/java/com.ultraon.testing.QueueTest.java`
 
 To optimize for algorithmic runtime, memory usage, and memory throughput. I
 have implemented the bounded queue as an array based circular queue.  
@@ -60,10 +60,10 @@ have implemented the bounded queue as an array based circular queue.
 By implementing the queue as drifting within a circular array both the 
 `enqueue()` and `dequeue()` methods will have O(1) or constant runtime.
 
-Additionally an array based implementation of a Queue has been used over a 
-linked list implementation of a Queue to optimize memory usage. Since the Queue 
+Additionally an array based implementation of a com.ultraon.testing.Queue has been used over a
+linked list implementation of a com.ultraon.testing.Queue to optimize memory usage. Since the com.ultraon.testing.Queue
 will be holding small elements(4 byte integers) and the constructor requires
-a size we can assume the purpose of this bounded Queue is to store
+a size we can assume the purpose of this bounded com.ultraon.testing.Queue is to store
 a known max size of integers. By not using the pointers used in a linked list
-Queue this array based Queue is more space efficient if the maxSize
-of the Queue is known initially.
+com.ultraon.testing.Queue this array based com.ultraon.testing.Queue is more space efficient if the maxSize
+of the com.ultraon.testing.Queue is known initially.

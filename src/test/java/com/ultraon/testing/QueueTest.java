@@ -1,15 +1,25 @@
-import junit.framework.TestCase;
+package com.ultraon.testing;
+
+import com.ultraon.testing.Queue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNull;
 
 /**
  * @author Quinn Liu(quinnliu@vt.edu)
  */
-public class QueueTest extends TestCase {
+public class QueueTest {
     private Queue<Integer> queue;
 
+    @Before
     public void setUp() {
-        this.queue = new Queue<Integer>(4);
+        this.queue = new Queue<>(4);
     }
 
+    @Test
     public void test_enqueue() {
         this.queue.enqueue(101);
         assertEquals(1, this.queue.length());
@@ -28,6 +38,7 @@ public class QueueTest extends TestCase {
         }
     }
 
+    @Test
     public void test_dequeue() {
         try {
             this.queue.dequeue();
@@ -56,6 +67,7 @@ public class QueueTest extends TestCase {
         assertNull(this.queue.frontValue());
     }
 
+    @Test
     public void test_frontValue() {
         assertNull(this.queue.frontValue());
         this.queue.enqueue(1);
