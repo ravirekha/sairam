@@ -9,8 +9,14 @@ import org.junit.Test;
  */
 public class ZhabaTest {
     @Test
-    public void test() {
+    public void testEmptyString() {
         final Reversal reversal = new Reversal();
         Truth.assertThat(reversal.reverse()).isNotNull();
+    }
+
+    @Test
+    public void testOneLetter() {
+        final Reversal reversal = new Reversal();
+        
     }
 }
