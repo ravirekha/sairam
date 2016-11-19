@@ -1,7 +1,5 @@
 package com.ultraon.testing;
 
-import com.ultraon.testing.Queue;
-
 import org.junit.Before;
 import org.junit.Test;
 

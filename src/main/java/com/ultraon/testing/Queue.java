@@ -22,13 +22,15 @@ public class Queue<E> {
         // a max of maxSize number of elements. This is used for the logic
         // to determine if the queue is empty or full as it is difting
         // through the circular array.
-        this.maxSize = maxSize+1;
+        this.maxSize = maxSize + 1;
         this.rearElementIndex = 0;
         this.frontElementIndex = 1;
         this.circularArray = (E[]) new Object[this.maxSize];
     }
 
-    Queue() { this(DEFAULT_SIZE); }
+    Queue() {
+        this(DEFAULT_SIZE);
+    }
 
     /**
      * @param element Element to add to the queue if not full.
@@ -36,14 +38,14 @@ public class Queue<E> {
      * @throws java.lang.IllegalStateException If queue is full.
      */
     boolean enqueue(E element) {
-        if (((rearElementIndex +2) % maxSize) == frontElementIndex) {
+        if (((rearElementIndex + 2) % maxSize) == frontElementIndex) {
             throw new IllegalStateException("Bounded queue is full at size = "
                     + this.length() + ". Call dequeue() before recalling " +
                     "enqueue()");
         }
 
         // increment without going out the bounds of the circular array
-        rearElementIndex = (rearElementIndex +1) % maxSize;
+        rearElementIndex = (rearElementIndex + 1) % maxSize;
         circularArray[rearElementIndex] = element;
         return true;
     }
@@ -53,14 +55,14 @@ public class Queue<E> {
      * @throws java.lang.IllegalStateException If queue is empty.
      */
     E dequeue() {
-        if(length() == 0) {
+        if (length() == 0) {
             throw new IllegalStateException("Bounded queue is currently empty. "
                     + "Call enqueue() before dequeue()");
         }
         E element = circularArray[frontElementIndex];
 
         // increment without going out the bounds of the circular array
-        frontElementIndex = (frontElementIndex +1) % maxSize;
+        frontElementIndex = (frontElementIndex + 1) % maxSize;
         return element;
     }
 

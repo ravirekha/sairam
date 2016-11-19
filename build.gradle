@@ -21,6 +21,7 @@ sourceSets {
 
 dependencies {
     testCompile 'junit:junit:4.4'
+    testCompile "com.google.truth:truth:0.30"
 }
 
 test {
